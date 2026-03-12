@@ -344,26 +344,26 @@ def demand_diagnostic(seed: int, samples: int, demand: DemandCfg) -> Dict[str, f
 
 
 def plot_monthly(monthly_avg: Sequence[float]):
-    fig = plt.figure()
+    fig, ax = plt.subplots()
     x = list(range(1, 13))
-    plt.plot(x, monthly_avg, marker="o")
-    plt.title("Average monthly profit")
-    plt.xlabel("Month")
-    plt.ylabel("Profit [EUR]")
-    plt.xticks(x)
-    plt.grid(alpha=0.25)
-    plt.tight_layout()
+    ax.plot(x, monthly_avg, marker="o")
+    ax.set_title("Average monthly profit")
+    ax.set_xlabel("Month")
+    ax.set_ylabel("Profit [EUR]")
+    ax.set_xticks(x)
+    ax.grid(alpha=0.25)
+    fig.tight_layout()
     return fig
 
 
 def plot_hist(values: Sequence[float]):
-    fig = plt.figure()
-    plt.hist(values, bins=18, edgecolor="black")
-    plt.title("Yearly profit distribution")
-    plt.xlabel("Profit [EUR]")
-    plt.ylabel("Frequency")
-    plt.grid(alpha=0.20)
-    plt.tight_layout()
+    fig, ax = plt.subplots()
+    ax.hist(values, bins=18, edgecolor="black")
+    ax.set_title("Yearly profit distribution")
+    ax.set_xlabel("Profit [EUR]")
+    ax.set_ylabel("Frequency")
+    ax.grid(alpha=0.20)
+    fig.tight_layout()
     return fig
 
 
